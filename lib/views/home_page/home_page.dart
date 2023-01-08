@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:recipe_app/constants.dart';
+import 'package:recipe_app/views/detail_page/detail_page.dart';
 import 'package:recipe_app/views/home_page/components/categories_btn.dart';
 import 'package:recipe_app/views/home_page/components/recipe_card.dart';
 
@@ -191,12 +192,15 @@ class _HomePageState extends State<HomePage> {
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,
                 itemBuilder: (context, index) {
-                  return const RecipeCard(
+                  return RecipeCard(
                     img: 'https://picsum.photos/seed/image016/200/300',
                     duration: '30 Min',
                     rating: 4.8,
                     name: 'Chicken Curry',
                     categorie: 'Asian',
+                    whenPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
+                    },
                   );
                 },
                 staggeredTileBuilder: (index) => StaggeredTile.fit(1),
