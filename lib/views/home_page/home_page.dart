@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:recipe_app/constants.dart';
+import 'package:recipe_app/recipe_data.dart';
 import 'package:recipe_app/views/detail_page/detail_page.dart';
 import 'package:recipe_app/views/home_page/components/categories_btn.dart';
 import 'package:recipe_app/views/home_page/components/recipe_card.dart';
@@ -18,9 +19,9 @@ class _HomePageState extends State<HomePage> {
 
   final List categories = [
     {'icn': Icons.local_fire_department, 'name': 'Popular'},
-    {'icn': Icons.local_pizza, 'name': 'Western'},
+    {'icn': Icons.breakfast_dining, 'name': 'Bread'},
     {'icn': Icons.coffee, 'name': 'Drink'},
-    {'icn': Icons.rice_bowl, 'name': 'Local'},
+    {'icn': Icons.rice_bowl, 'name': 'Chinese'},
     {'icn': Icons.icecream, 'name': 'Dessert'},
     {'icn': Icons.dinner_dining, 'name': 'Italian'},
   ];
@@ -97,7 +98,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                margin: kpPaddingOne,
+                margin: EdgeInsets.only(left: 20.w, bottom: 20.h),
                 width: MediaQuery.of(context).size.width * 0.75,
                 child: RichText(
                   text: TextSpan(
@@ -112,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(color: kcPrimaryColor),
                         )
                       ]),
-                )),
+                ),),
             Container(
               margin: kpPaddingOneHoriz,
               decoration: BoxDecoration(
@@ -188,18 +189,19 @@ class _HomePageState extends State<HomePage> {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 crossAxisCount: 2,
-                itemCount: 8,
+                itemCount: kdRecipeData.length,
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,
                 itemBuilder: (context, index) {
                   return RecipeCard(
-                    img: 'https://picsum.photos/seed/image016/200/300',
-                    duration: '30 Min',
-                    rating: 4.8,
-                    name: 'Chicken Curry',
-                    categorie: 'Asian',
+                    img: kdRecipeData[index].imgUrl,
+                    duration: '${kdRecipeData[index].duration} Min',
+                    rating: kdRecipeData[index].rating,
+                    name: kdRecipeData[index].name,
+                    categorie: kdRecipeData[index].categorie,
+                    index: index,
                     whenPressed: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index)));
                     },
                   );
                 },

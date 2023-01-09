@@ -11,7 +11,7 @@ class RecipeCard extends StatelessWidget {
     required this.rating,
     required this.name,
     required this.categorie,
-    required this.whenPressed,
+    required this.whenPressed, required this.index,
   }) : super(key: key);
 
   final String img;
@@ -20,6 +20,7 @@ class RecipeCard extends StatelessWidget {
   final String name;
   final String categorie;
   final VoidCallback whenPressed;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -30,23 +31,23 @@ class RecipeCard extends StatelessWidget {
         children: [
           Stack(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(25.r),
-                // child: Image.network(
-                //   img,
-                // ),
-                child: CachedNetworkImage(
-                  imageUrl: img,
-                  placeholder: (context, url)=> Container(
-                    width: 200.w,
-                    height: 280.h,
-                    color: Colors.grey[300],
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    width: 200.w,
-                    height: 280.h,
-                    color: Colors.grey[300],
-                    child: const Icon(Icons.error),
+              Hero(
+                tag: 'card-img-$index',
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(25.r),
+                  child: CachedNetworkImage(
+                    imageUrl: img,
+                    placeholder: (context, url)=> Container(
+                      width: 200.w,
+                      height: 280.h,
+                      color: Colors.grey[300],
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      width: 200.w,
+                      height: 280.h,
+                      color: Colors.grey[300],
+                      child: const Icon(Icons.error),
+                    ),
                   ),
                 ),
               ),
