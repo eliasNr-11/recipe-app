@@ -4,21 +4,25 @@ import 'package:recipe_app/constants.dart';
 
 class IngredientsDetail extends StatelessWidget {
   const IngredientsDetail({
-    Key? key, required this.main, required this.sub,
+    Key? key, required this.amount, required this.name,
   }) : super(key: key);
 
-  final String main;
-  final String sub;
+  final String amount;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(Icons.circle, size: 12.sp, color: kcPrimaryColor,),
+        Padding(
+          padding: EdgeInsets.only(top: 5.h),
+          child: Icon(Icons.circle, size: 12.sp, color: kcPrimaryColor,),
+        ),
         SizedBox(width: 15.w),
-        Text(main, style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),),
+        Text(amount, style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),),
         SizedBox(width: 5.w),
-        Text(sub, style: TextStyle(fontSize: 16.sp),),
+        Expanded(child: Text(name, style: TextStyle(fontSize: 16.sp),)),
       ],
     );
   }
@@ -33,25 +37,28 @@ class DirectionsDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: 4.h),
-          child: Icon(
-            Icons.circle,
-            size: 12.sp,
-            color: kcPrimaryColor,
+    return Padding(
+      padding: EdgeInsets.only(bottom: 10.h),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 5.h),
+            child: Icon(
+              Icons.circle,
+              size: 12.sp,
+              color: kcPrimaryColor,
+            ),
           ),
-        ),
-        SizedBox(width: 15.w),
-        Expanded(
-          child: Text(
-            direction,
-            style: TextStyle(fontSize: 14.sp),
+          SizedBox(width: 15.w),
+          Expanded(
+            child: Text(
+              direction,
+              style: TextStyle(fontSize: 16.sp),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
