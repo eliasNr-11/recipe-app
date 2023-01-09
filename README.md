@@ -1,6 +1,6 @@
 # Recipe App
 
-Ui of recipe app created using flutter
+Recipe app created using flutter
 
 ## Inspiration
 Design from Behance
