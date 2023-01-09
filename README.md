@@ -1,16 +1,11 @@
-# recipe_app
+# Recipe App
 
-A new Flutter project.
+Ui of recipe app created using flutter
 
-## Getting Started
+## Inspiration
+Design from Behance
+- Fadli Iman (Mobile App - Food Recipe Application)<br/>
+(Link) https://www.behance.net/gallery/96301779/Mobile-App-Food-Recipe-Application/modules/556150941
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+![Web 1920 – 1](https://user-images.githubusercontent.com/78848952/211393946-32eb4061-35ab-4acc-82aa-21f468ddb6b7.jpg)
