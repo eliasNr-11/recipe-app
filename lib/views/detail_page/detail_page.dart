@@ -134,6 +134,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
               flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.pin,
                 background: Hero(
                   tag: 'card-img-${widget.index}',
                   child: Stack(
